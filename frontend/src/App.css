@@ -1,0 +1,41 @@
+* {
+  max-width: 500px;
+  align-items: center;
+}
+
+html {
+  display: table;
+  margin: auto;
+}
+
+body {
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  float: center;
+}
+
+body {
+  overflow-y: hidden;
+}
+
+#root {
+  font-family: 'SeoulNamsanM';
+  height: 100vh;
+  margin: 0 auto;
+  text-align: center;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: #f2f0ef;
+  -ms-overflow-style: none;
+}
+
+button:focus {
+  box-shadow: none !important;
+}
+
+select:focus {
+  outline: none;
+}
