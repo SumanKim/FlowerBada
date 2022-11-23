@@ -5,7 +5,7 @@ const DEV = 'http://localhost:8080/api/v1';
 const HOST = 'https://k7a405.p.ssafy.io:8080/api/v1/';
 
 const api = axios.create({
-  baseURL: DEV,
+  baseURL: HOST,
 });
 
 let tokenRefreshing = false;
@@ -68,7 +68,6 @@ api.interceptors.response.use(
       if (!tokenRefreshing) {
         tokenRefreshing = true;
         const refreshToken = loginUser.refresh;
-         
       }
     }
 
