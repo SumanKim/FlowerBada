@@ -151,7 +151,7 @@
 
 <br/>
 
-## 👀 프로젝트 주요 기능
+## 👀 주요 기능
 
 <table align="center">
 <thead>
