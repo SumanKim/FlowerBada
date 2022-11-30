@@ -130,7 +130,7 @@
 
 <img src="https://user-images.githubusercontent.com/14370441/203459598-d667c9ef-e629-4f07-9cfc-d9ccb886ed82.png">
 
-## 🎥 소개 영상
+## 🎥 영상
 
 <table align="center">
 <thead>
