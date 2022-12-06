@@ -42,9 +42,9 @@ const CaptureRolling = forwardRef(
       }, 50);
     };
 
-  useEffect(() => {
-    get();
-  }, []);
+    useEffect(() => {
+      get();
+    }, []);
 
     useEffect(() => {
       if (imgHeight != 0) {
