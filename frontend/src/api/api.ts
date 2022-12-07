@@ -2,7 +2,7 @@ import { IuserRecoil, userReCoil } from '@src/recoil/userRecoil';
 import axios from 'axios';
 import { useRecoilState } from 'recoil';
 const DEV = 'http://localhost:8080/api/v1';
-const HOST = 'https://k7a405.p.ssafy.io:8080/api/v1/';
+const HOST = 'https://flowerbada:8080/api/v1/';
 
 const api = axios.create({
   baseURL: HOST,
