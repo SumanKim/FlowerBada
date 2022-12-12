@@ -1,47 +1,47 @@
-import { IuserRecoil, userReCoil } from '@src/recoil/userRecoil';
+// import { IuserRecoil, userReCoil } from '@src/recoil/userRecoil';
 import axios from 'axios';
-import { useRecoilState } from 'recoil';
+// import { useRecoilState } from 'recoil';
 const DEV = 'http://localhost:8080/api/v1';
-const HOST = 'https://flowerbada:8080/api/v1/';
+const HOST = 'https://flowerbada.kr:8080/api/v1/';
 
 const api = axios.create({
   baseURL: HOST,
 });
 
-let tokenRefreshing = false;
-let subscribers: ((token: string) => void)[] = [];
+// let tokenRefreshing = false;
+// let subscribers: ((token: string) => void)[] = [];
 
-const [loginUser, setLoginUser] = useRecoilState<IuserRecoil>(userReCoil);
+// const [loginUser, setLoginUser] = useRecoilState<IuserRecoil>(userReCoil);
 
-function addSubScriber(cb: (token: string) => void) {
-  subscribers.push(cb);
-}
+// function addSubScriber(cb: (token: string) => void) {
+//   subscribers.push(cb);
+// }
 
-function onRefreshed(token: string) {
-  subscribers.map((cb) => cb(token));
-}
+// function onRefreshed(token: string) {
+//   subscribers.map((cb) => cb(token));
+// }
 
-function getLocalAccessToken() {
-  const accessToken = window.localStorage.getItem('jwt');
-  return accessToken;
-}
+// function getLocalAccessToken() {
+//   const accessToken = window.localStorage.getItem('jwt');
+//   return accessToken;
+// }
 
-function getLocalRefreshToken() {
-  const refreshToken = window.localStorage.getItem('refresh');
-  return refreshToken;
-}
+// function getLocalRefreshToken() {
+//   const refreshToken = window.localStorage.getItem('refresh');
+//   return refreshToken;
+// }
 
-// refresh token 재발급 api 요청
-function refreshToken(access: string, refresh: string) {
-  return api({
-    method: 'get',
-    url: 'user/points',
-    headers: {
-      'X-AUTH-TOKEN': `Bearer ` + access,
-      'REFRESH-TOKEN': 'Bearer ' + refresh,
-    },
-  });
-}
+// // refresh token 재발급 api 요청
+// function refreshToken(access: string, refresh: string) {
+//   return api({
+//     method: 'get',
+//     url: 'user/points',
+//     headers: {
+//       'X-AUTH-TOKEN': `Bearer ` + access,
+//       'REFRESH-TOKEN': 'Bearer ' + refresh,
+//     },
+//   });
+// }
 
 // 요청 인터셉터
 api.interceptors.request.use(
@@ -62,14 +62,13 @@ api.interceptors.response.use(
     return response;
   },
   function (error) {
-    const originalRequest = error.config;
-
-    if (error.response.status === 401) {
-      if (!tokenRefreshing) {
-        tokenRefreshing = true;
-        const refreshToken = loginUser.refresh;
-      }
-    }
+    // const originalRequest = error.config;
+    // if (error.response.status === 401) {
+    //   if (!tokenRefreshing) {
+    //     tokenRefreshing = true;
+    //     const refreshToken = loginUser.refresh;
+    //   }
+    // }
 
     if (error.response.status === 404 || error.response.status === 429) {
       window.location.href = `/error/${error.response.status}`;
